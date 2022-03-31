@@ -4,11 +4,13 @@ function newMovie(req, res) {
     res.render('movies/new');
 }
 
-function index(req, res) {
-
-    res.render('movies/index', {
-        movies: movies.getAll()
-    })
+function index(req, res) { //coding the index action to the movie model
+    Movie.find({}, function (err, movies) { //query for all movies
+        res.render('movies/index', {
+            movies,
+            title: 'All Movies'
+        });
+    });
 }
 
 function create(req, res) {
@@ -31,5 +33,6 @@ function create(req, res) {
 
 module.exports = {
     new: newMovie,
-    create
+    create,
+    index //export the movie controller's index action
 };

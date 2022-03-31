@@ -13,6 +13,7 @@ const movieSchema = new Schema({
     nowShowing: Boolean //now YOU Add an additional property named nowShowing with a type of Boolean (make sure that it's uppercased so that it refers to JavaScript's built-in Boolean object wrapper).
 });
 
+
 // Compile the schema into a model and export it
 module.exports = mongoose.model('Movie', movieSchema);
 
